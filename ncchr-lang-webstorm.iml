@@ -9,10 +9,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/fastjson-1.2.57.jar!/" />
+          <root url="jar://$MODULE_DIR$/resources/lib/fastjson-1.2.57.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
