@@ -68,9 +68,9 @@ public class ReplaceLangAction extends AnAction {
             Boolean inObjectFlag = isInObject(document, end);
             String langKey = "";
             if (inObjectFlag) {
-                langKey = prefix + "[\"" + languageData.getLangKey() + "\"] /*多语: " + selectText + " */";
+                langKey = prefix + "[\"" + languageData.getLangKey() + "\"] /*多语: " + selectText + "*/";
             } else {
-                langKey = "{" + prefix + "[\"" + languageData.getLangKey() + "\"] /*多语: " + selectText + " */}";
+                langKey = "{" + prefix + "[\"" + languageData.getLangKey() + "\"] /*多语: " + selectText + "*/}";
             }
             // Replace the selection with a fixed string.
             // Must do this document change in a write action context.

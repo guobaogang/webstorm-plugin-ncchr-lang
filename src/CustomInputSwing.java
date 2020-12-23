@@ -1,12 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Function;
 
 import com.intellij.openapi.ui.ComboBox;
-import com.intellij.openapi.ui.Messages;
 
 public class CustomInputSwing {
 
@@ -18,7 +15,8 @@ public class CustomInputSwing {
 
     //为了让位于底部的按钮可以拿到组件内容，这里把表单组件做成类属性
     private JLabel prefixTitle = new JLabel("请输入多语前缀，如json、this.state.language等");
-    private JTextField prefixContent = new JTextField("json");
+    String[] preData = new String[]{"language", "json", "this.state.language"};
+    private ComboBox<String> prefixContent = new ComboBox<String>(preData);
     private JLabel fileTitle;
     private ComboBox<String> fileNameContent;
 
@@ -41,8 +39,8 @@ public class CustomInputSwing {
         String[] listData = getDirFile(langDir);
         fileTitle = new JLabel("请选择多语文件：");
         fileNameContent = new ComboBox<String>(listData);
-
         center.setLayout(new GridLayout(4, 1));
+        prefixContent.setEditable(true);
 
         center.add(prefixTitle);
         center.add(prefixContent);
@@ -64,7 +62,7 @@ public class CustomInputSwing {
 
         //按钮事件绑定
         submit.addActionListener(e -> {
-            String prefix = prefixContent.getText();
+            String prefix = prefixContent.getSelectedItem().toString();
             String fileName = fileNameContent.getSelectedItem().toString();
             String[] fileInfo = new String[]{prefix, fileName};
             func.apply(fileInfo);
